@@ -1,0 +1,21 @@
+/* 
+Configures an external LED to blink:
+The LED turns on for one second,
+Then turns off for one second,
+Repeatedly
+*/
+
+int LED = 11;   //Declares the variable LED as pin 9
+
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED, OUTPUT);   //Configures pin 9 as an output
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LED, HIGH);    // turns on the LED
+  delay(1000);    // wait for 1 second
+  digitalWrite(LED, LOW);   // turns off the LED
+  delay(1000);    // wait for 1 second
+}
