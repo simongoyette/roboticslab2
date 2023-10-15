@@ -1,0 +1,30 @@
+/*
+Configures 3 different external LEDS to blink for one second, one after the other,
+Blue turns on when red and green are off,
+Green turns on when blue and red are off,
+Red turns on when green and blue are off,
+Repeatedly
+*/
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(9, OUTPUT);   //Configures pin 9 as an output
+pinMode(10, OUTPUT);    //Configures pin 10 as an output    
+pinMode(11, OUTPUT);    //Configures pin 11 as an output
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(9,HIGH);   //Turns on the blue LED
+digitalWrite(10,LOW);   //Turns off the green LED
+digitalWrite(11,LOW);   //Turns off the red LED
+delay(1000);    //Wait for 1 second
+digitalWrite(9,LOW);    //Turns off the blue LED
+digitalWrite(10,HIGH);    //Turns on the green LED
+digitalWrite(11,LOW);   //Turns off the red LED
+delay(1000);    //Wait for 1 second
+digitalWrite(9,LOW);    //Turns off the blue LED
+digitalWrite(10,LOW);   //Turns off the green LED
+digitalWrite(11,HIGH);    //Turns on the red LED
+delay(1000);    //Wait for 1 second
+}
