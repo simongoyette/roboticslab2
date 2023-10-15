@@ -1,0 +1,33 @@
+/*
+When the push button is pressed, only the colors red and green light up,
+When the push button is released, only the colors red and blue light up,
+*/
+
+int pushButton = 2;   //Declares the variable pushButton as pin 2 
+int red = 9;    //Declares the variable red as pin 9
+int green = 10;   //Declares the variable green as pin 10
+int blue = 11;    //Declares the variable blue as pin 11
+
+void setup()
+ {
+  Serial.begin(9600);   //Starts serial connection at 9600 
+  pinMode(pushButton, INPUT_PULLUP);    //Configures pin 2 as an input and activates the internal resistor
+  pinMode(red, OUTPUT);   //Configures pin 9 as an output
+  pinMode(green, OUTPUT);   //Configures pin 10 as an output
+  pinMode(blue, OUTPUT);    //Configures pin 11 as an output
+}
+void loop() 
+{
+  int buttonState = digitalRead(pushButton);    //Reads the value from pin 2
+  Serial.println(buttonState);    //Prints out the value of the pushbutton
+  delay(1);   //Delay in between reads for stability
+  digitalWrite(red,buttonState);    //Lets the state of the push button control pin 9
+  digitalWrite(green,buttonState);    //Lets the state of the push button control pin 10
+  digitalWrite(blue,buttonState);   //Lets the state of the push button control pin 11
+  if(buttonState == LOW) analogWrite(red,255);    //If the push button is released, the color red will light up
+  if(buttonState == LOW)analogWrite(green,255);   //If the push button is released, the color green will light up
+  if(buttonState == LOW) analogWrite(blue,0);   //If the push button is released, the color blue will not light up
+  if(buttonState == HIGH) analogWrite(red,255);   //If the push button is pressed, the color red will light up
+  if(buttonState == HIGH) analogWrite(green,0);   //If the push button is pressed, the color green will not light up
+  if(buttonState == HIGH) analogWrite(blue,255);    //If the push button is pressed, the color blue will light up
+  }
