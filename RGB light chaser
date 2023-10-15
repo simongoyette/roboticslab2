@@ -1,0 +1,30 @@
+/*
+Configure all 3 colors of the RGB to light up one at a time, for one second
+When the red turns on, green and blue turn off
+When the green turns on, red and blue turn off
+When the blue turns on, red and green turn off
+Repeatedly
+*/
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(9, OUTPUT);   //Configures pin 9 as an output
+pinMode(10, OUTPUT);    //Configures pin 10 as an output    
+pinMode(11, OUTPUT);    //Configures pin 11 as an output
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(9,HIGH);   //Turns on the red LED
+digitalWrite(10,LOW);   //Turns off the green LED
+digitalWrite(11,LOW);   //Turns off the blue LED
+delay(1000);    //Wait for 1 second
+digitalWrite(9,LOW);    //Turns off the red LED
+digitalWrite(10,HIGH);    //Turns on the green LED
+digitalWrite(11,LOW);   //Turns off the blue LED
+delay(1000);    //Wait for 1 second
+digitalWrite(9,LOW);    //Turns off the red LED
+digitalWrite(10,LOW);   //Turns off the green LED
+digitalWrite(11,HIGH);    //Turns on the blue LED
+delay(1000);
+}
