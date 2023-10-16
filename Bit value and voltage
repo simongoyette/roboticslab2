@@ -1,0 +1,16 @@
+/*
+Print both bit value of the potentiometer and voltage value on the serialprint
+*/
+
+void setup() {
+  Serial.begin(9600);   //Serial communication begins at 9600
+}
+
+void loop() {
+int Bit = analogRead(A0);   //Configures the variable Bit to store the values received by the pin A0
+float voltage = Bit * (5.0 / 1023.0);   //Configures the variable voltage to multiply Bit by 5 over 1023
+Serial.print("voltage");    //The serial monitor will print the word voltage to differ both values
+Serial.println(voltage);    //The serial monitor will print the voltage registered
+Serial.print("bitValue");    //The serial monitor will print the word bitValue to differ both values
+Serial.println(Bit);    //The serial monitor will print the bits registered
+}
